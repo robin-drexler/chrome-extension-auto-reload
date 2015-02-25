@@ -1,5 +1,5 @@
 ## What?
-Reloads all unpacked extension whenever a file is changed in an extension that is currently under development.
+Reloads all unpacked extensions whenever a file is changed in an extension that is currently under development.
 You'll never need to go to `chrome://extensions` and smash reload again.
 
 ## How
