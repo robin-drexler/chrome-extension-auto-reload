@@ -10,6 +10,9 @@ If there is no open tab, currently at `chrome://extensions`, the extension creat
 An example on how to communicate with the extension can be found here:
 [robin-drexler/chrome-extension-auto-reload-watcher](https://github.com/robin-drexler/chrome-extension-auto-reload-watcher)
 
+## Installation
+ - Clone the repo
+ - load `app` folder as unpacked extension in Chrome
 
 ## Why...
 
