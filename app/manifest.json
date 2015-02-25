@@ -1,0 +1,20 @@
+{
+  "name": "/////Chrome Unpacked Extension Auto Reload",
+  "version": "0.1",
+  "icons": {
+    "16": "/img/icons/icon_16.png",
+    "48": "/img/icons/icon_48.png",
+    "128": "/img/icons/icon_128.png"
+  },
+
+  "description": "Never refresh manually again!11!",
+  "permissions": [
+    "tabs"
+  ],
+
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
+  "manifest_version": 2
+}
