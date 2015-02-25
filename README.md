@@ -13,6 +13,8 @@ An example on how to send file change events to the extension can be found here:
 ## Installation
  - Clone the repo
  - load `app` folder as unpacked extension in Chrome
+ - start developing an unpacked extension
+  - don't forget to emit events when a file changes 
 
 ## Why...
 
