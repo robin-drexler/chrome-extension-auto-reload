@@ -34,6 +34,7 @@
               window.setTimeout(function () {
                 reloadTab(tab);
               }, 500); //not sure why immediate reload does not seem to work...
+              // note to self, probably one has to wait for load event, so it can be actually *re*loaded
             }
         );
       }
