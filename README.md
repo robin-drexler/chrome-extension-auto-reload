@@ -5,7 +5,7 @@ You'll never need to go to `chrome://extensions` and smash reload again.
 ## How
 Extension tries to connect to socket.io server on `http://localhost:8890` (yes, that port is random) and waits for `file.change` events to flow in.
 When an event is incoming, the extension reloads `chrome://extensions` automatically, which causes all unpacked extensions to reload and update (e.g. content scripts).
-If there is no open tab, currently at `chrome://extensions`, the extension creates and reloads one.
+If there is no open tab, currently opened at `chrome://extensions`, the extension creates and reloads one.
 
 An example on how to send file change events to the extension can be found here:
 [robin-drexler/chrome-extension-auto-reload-watcher](https://github.com/robin-drexler/chrome-extension-auto-reload-watcher)
