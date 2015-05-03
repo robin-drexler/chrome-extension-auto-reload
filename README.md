@@ -11,6 +11,9 @@ An example on how to send file change events to the extension can be found here:
 [robin-drexler/chrome-extension-auto-reload-watcher](https://github.com/robin-drexler/chrome-extension-auto-reload-watcher)
 
 ## Installation
+
+Download [from the webstore](https://chrome.google.com/webstore/detail/chrome-unpacked-extension/fddfkmklefkhanofhlohnkemejcbamln) or:
+
  - Clone the repo
  - load `app` folder as unpacked extension in Chrome
  - start developing an unpacked extension
