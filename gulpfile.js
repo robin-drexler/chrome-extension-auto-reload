@@ -47,7 +47,9 @@ gulp.task('build-code', ['bundle-js'], function(callback) {
 
 gulp.task('bundle-js', function(callback) {
 	gulp.src('src/js/background.js')
-        .pipe(browserify())
+        .pipe(browserify({
+			debug: true
+		}))
         .pipe(gulp.dest('build/js'));
 	console.log('Source JavaScript files bundled to /build/js/background.js');
 	callback();
@@ -56,6 +58,7 @@ gulp.task('bundle-js', function(callback) {
 gulp.task('watch', ['build'], function(callback) {
 	console.log('Watching for changes JavaScript or JSON files ...');
 	gulp.watch('./src/**/*.js', ['build-code']);
+	gulp.watch('./src/**/*.json', ['build-code']);
 	gulp.watch('./package.json', ['build-code']);
 });
 
