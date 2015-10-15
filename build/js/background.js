@@ -1,57 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/robin/Development/chrome-extension-auto-reload/src/js/background.js":[function(require,module,exports){
-(function (console) {
-  "use strict";
-
-  const CHROME_EXTENSION_URL = 'chrome://extensions/';
-  const SOCKET_IO_PORT = '8890';
-
-  var io = require('./external/socket.io.js');
-  var socket = io('http://localhost:' + SOCKET_IO_PORT);
-
-
-  function reloadTab(tab) {
-    console.log('reloading tab', tab);
-    chrome.tabs.reload(tab.id);
-  }
-
-  function reloadExtensions() {
-    // search for any open extension tab and reload
-    chrome.tabs.query({
-      url: CHROME_EXTENSION_URL
-    }, function (tabs) {
-      console.log('found tabs', tabs.length, tabs);
-
-      if (tabs.length) {
-        reloadTab(tabs[0]);
-      } else {
-        // no extension tab found. Create and reload
-        console.log('creating new tab');
-        chrome.tabs.create({
-              url: CHROME_EXTENSION_URL,
-              index: 0,
-              pinned: true,
-              active: false
-            }, function (tab) {
-              window.setTimeout(function () {
-                reloadTab(tab);
-              }, 500); //not sure why immediate reload does not seem to work...
-            }
-        );
-      }
-
-    });
-  }
-
-  socket.on('file.change', function () {
-    console.log('received ping');
-    reloadExtensions();
-  });
-
-})(window.console);
-
-
-
-},{"./external/socket.io.js":"/Users/robin/Development/chrome-extension-auto-reload/src/js/external/socket.io.js"}],"/Users/robin/Development/chrome-extension-auto-reload/src/js/external/socket.io.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.io=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 
@@ -6992,5 +6939,59 @@
 (1)
 });
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},["/Users/robin/Development/chrome-extension-auto-reload/src/js/background.js"]);
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],2:[function(require,module,exports){
+(function (console) {
+  "use strict";
+
+  const CHROME_EXTENSION_URL = 'chrome://extensions/';
+  const SOCKET_IO_PORT = '8890';
+
+  var io = require('./external/socket.io.js');
+  var socket = io('http://localhost:' + SOCKET_IO_PORT);
+
+
+  function reloadTab(tab) {
+    console.log('reloading tab', tab);
+    chrome.tabs.reload(tab.id);
+  }
+
+  function reloadExtensions() {
+    // search for any open extension tab and reload
+    chrome.tabs.query({
+      url: CHROME_EXTENSION_URL
+    }, function (tabs) {
+      console.log('found tabs', tabs.length, tabs);
+
+      if (tabs.length) {
+        reloadTab(tabs[0]);
+      } else {
+        // no extension tab found. Create and reload
+        console.log('creating new tab');
+        chrome.tabs.create({
+              url: CHROME_EXTENSION_URL,
+              index: 0,
+              pinned: true,
+              active: false
+            }, function (tab) {
+              window.setTimeout(function () {
+                reloadTab(tab);
+              }, 500); //not sure why immediate reload does not seem to work...
+              // note to self, probably one has to wait for load event, so it can be actually *re*loaded
+            }
+        );
+      }
+
+    });
+  }
+
+  socket.on('file.change', function () {
+    console.log('received ping');
+    reloadExtensions();
+  });
+
+})(window.console);
+
+
+
+},{"./external/socket.io.js":1}]},{},[2])

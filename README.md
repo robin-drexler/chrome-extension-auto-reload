@@ -27,12 +27,22 @@ Currently disabling and enabling extensions again causes any open inspection win
 
 ## Development
 
+To hack this code, make sure you have NodeJS installed, then navigate to the root of this project in your command line interface and run the following to install all dependencies:
 ```
 npm install
 ```
 
-`app/js` is created from `src/js` by:
-
+Generate a `./build/` folder which can be loaded into Chrome as an unpacked extension:
 ```
-browserify src/js/background.js -o app/js/background.js
+gulp build
+```
+
+Automatically rebuild modified files when they're saved:
+```
+gulp watch
+```
+
+Generate `./dist/chrome-extension.zip`, which can be uploaded to the Chrom web store:
+```
+gulp dist
 ```

@@ -2,7 +2,7 @@
   "name": "Chrome Unpacked Extension Auto Reload",
   "version": "0.1.0",
   "icons": {
-    "256": "/img/icons/icon_256.png"
+    "256": "./img/icons/icon_256.png"
   },
 
   "description": "Reloads all unpacked extensions whenever a file is changed in an extension that is currently under development.",
