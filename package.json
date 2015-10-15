@@ -8,7 +8,7 @@
 	"build": "browserify src/js/background.js -o app/js/background.js",
 	"watch": "watchify src/js/background.js -o app/js/background.js -dv"
   },
-  "author": "",
+  "author": "Robin Drexler <https://github.com/robin-drexler>",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.3.12",
