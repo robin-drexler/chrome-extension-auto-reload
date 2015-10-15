@@ -37,7 +37,7 @@ Generate a `./build/` folder which can be loaded into Chrome as an unpacked exte
 gulp build
 ```
 
-Automatically rebuild modified files when they're saved:
+Automatically rebuild modified files into `/build/` when they're saved:
 ```
 gulp watch
 ```
