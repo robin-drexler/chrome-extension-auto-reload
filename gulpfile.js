@@ -26,14 +26,13 @@ gulp.task('default', ['build'], function() {
 
 });
 
-gulp.task('build', ['build-code'], function(callback) {
+gulp.task('build', ['build-code'], function() {
 	// copy images to build
 	gulp.src('./src/img/icons/*.*').pipe(gulp.dest('./build/img/icons'));
 	console.log('Images coppied from /src/ to /build/');
-	callback();
 });
 
-gulp.task('build-code', ['bundle-js'], function(callback) {
+gulp.task('build-code', ['bundle-js'], function() {
 	gulp.src('./src/manifest.json')
 			.pipe(template(getPackageDetails()))
 			.pipe(gulp.dest('./build'));
@@ -42,27 +41,25 @@ gulp.task('build-code', ['bundle-js'], function(callback) {
 	// copy external javascript to build
 	gulp.src('./src/js/external/*.*').pipe(gulp.dest('./build/js/external'));
 	
-	callback();
 });
 
-gulp.task('bundle-js', function(callback) {
+gulp.task('bundle-js', function() {
 	gulp.src('src/js/background.js')
         .pipe(browserify({
 			debug: true
 		}))
         .pipe(gulp.dest('build/js'));
 	console.log('Source JavaScript files bundled to /build/js/background.js');
-	callback();
 });
 
-gulp.task('watch', ['build'], function(callback) {
+gulp.task('watch', ['build'], function() {
 	console.log('Watching for changes JavaScript or JSON files ...');
 	gulp.watch('./src/**/*.js', ['build-code']);
 	gulp.watch('./src/**/*.json', ['build-code']);
 	gulp.watch('./package.json', ['build-code']);
 });
 
-gulp.task('dist', ['build'], function(callback) {
+gulp.task('dist', ['build'], function() {
 	// compress chrome build into a distribution zip
 	gulp.src('build/**')
         .pipe(zip('chrome-extension.zip'))
@@ -70,5 +67,4 @@ gulp.task('dist', ['build'], function(callback) {
 
 	console.log('./build/ folder successfully packaged as ./dist/chrome-extension.zip');
 
-	callback();
 });
