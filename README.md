@@ -32,17 +32,19 @@ To hack this code, make sure you have NodeJS installed, then navigate to the roo
 npm install
 ```
 
-Generate a `build/` folder which can be loaded into Chrome as an unpacked extension:
+Generate a `build/` folder which can be loaded into Chrome as an unpacked extension: *
 ```
 gulp build
 ```
 
-Automatically rebuild modified files into `build/` when they're saved:
+Automatically rebuild modified files into `build/` when they're saved: *
 ```
 gulp watch
 ```
 
-Generate `dist/chrome-extension.zip`, which can be uploaded to the Chrom web store:
+Generate `dist/chrome-extension.zip`, which can be uploaded to the Chrom web store: *
 ```
 gulp dist
 ```
+
+\* **Note** If you have trouble with gulp not being included in your path, you can replace gulp with "npm run" in the commands above. "gulp build" would become "npm run build".

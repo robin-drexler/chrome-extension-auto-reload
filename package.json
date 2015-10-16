@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify src/js/background.js -o app/js/background.js",
-    "watch": "watchify src/js/background.js -o app/js/background.js -dv"
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "dist": "gulp dist"
   },
   "author": "Robin Drexler <https://github.com/robin-drexler>",
   "license": "ISC",
