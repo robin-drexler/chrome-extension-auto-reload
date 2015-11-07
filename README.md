@@ -17,7 +17,7 @@ Install [from the webstore](https://chrome.google.com/webstore/detail/chrome-unp
  - Clone the repo
  - load `app` folder as unpacked extension in Chrome
  - start developing an unpacked extension
-  - don't forget to emit events when a file changes 
+  - don't forget to emit events when a file changes
 
 ## Why...
 
