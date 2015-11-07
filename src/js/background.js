@@ -4,7 +4,7 @@
   const CHROME_EXTENSION_URL = 'chrome://extensions/';
   const SOCKET_IO_PORT = '8890';
 
-  var io = require('./external/socket.io.js');
+  var io = require('socket.io-client');
   var socket = io('http://localhost:' + SOCKET_IO_PORT);
 
   function reloadTab(tab) {

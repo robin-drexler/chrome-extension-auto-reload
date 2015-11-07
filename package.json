@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/robin-drexler/chrome-extension-auto-reload/issues"
   },
-  "homepage": "https://github.com/robin-drexler/chrome-extension-auto-reload"
+  "homepage": "https://github.com/robin-drexler/chrome-extension-auto-reload",
+  "dependencies": {
+    "socket.io-client": "^1.3.7"
+  }
 }
