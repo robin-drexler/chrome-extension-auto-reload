@@ -4,6 +4,10 @@
   const CHROME_EXTENSION_URL = 'chrome://extensions/';
   const SOCKET_IO_PORT = '8890';
 
+  // TODO: Add options page that allows selecting one reload method or the other
+  // See https://github.com/robin-drexler/chrome-extension-auto-reload/pull/2#issuecomment-154829693
+  var reloadMethod = "api"; // can be "api" or "page"
+
   var io = require('socket.io-client');
   var socket = io('http://localhost:' + SOCKET_IO_PORT);
 
@@ -12,7 +16,7 @@
     chrome.tabs.reload(tab.id);
   }
 
-  function reloadExtensions() {
+  function reloadExtensionsUsingApi() {
     // find all unpacked extensions and reload them
     chrome.management.getAll(function(a) {
       var ext = {};
@@ -38,12 +42,44 @@
         }
       }
     });
+  }
 
+  function reloadExtensionsUsingPage() {
+    // search for any open extension tab and reload
+    chrome.tabs.query({
+      url: CHROME_EXTENSION_URL
+    }, function (tabs) {
+      console.log('found tabs', tabs.length, tabs);
+
+      if (tabs.length) {
+        reloadTab(tabs[0]);
+      } else {
+        // no extension tab found. Create and reload
+        console.log('creating new tab');
+        chrome.tabs.create({
+              url: CHROME_EXTENSION_URL,
+              index: 0,
+              pinned: true,
+              active: false
+            }, function (tab) {
+              window.setTimeout(function () {
+                reloadTab(tab);
+              }, 500); //not sure why immediate reload does not seem to work...
+              // note to self, probably one has to wait for load event, so it can be actually *re*loaded
+            }
+        );
+      }
+
+    });
   }
 
   socket.on('file.change', function () {
     console.log('received ping');
-    reloadExtensions();
+    if(reloadMethod === 'page') {
+      reloadExtensionsUsingPage();
+    } else {
+      reloadExtensionsUsingApi();
+    }
   });
 
 })(window.console);
