@@ -6,11 +6,13 @@
   },
   "description": "Reloads all unpacked extensions whenever a file is changed in an extension that is currently under development.",
   "permissions": [
+    "storage",
     "tabs",
     "management"
   ],
   "background": {
     "scripts": ["js/background.js"]
   },
+  "options_page": "options.html",
   "manifest_version": 2
 }

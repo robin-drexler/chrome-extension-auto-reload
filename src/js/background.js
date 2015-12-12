@@ -4,9 +4,24 @@
   const CHROME_EXTENSION_URL = 'chrome://extensions/';
   const SOCKET_IO_PORT = '8890';
 
-  // TODO: Add options page that allows selecting one reload method or the other
   // See https://github.com/robin-drexler/chrome-extension-auto-reload/pull/2#issuecomment-154829693
-  var reloadMethod = "api"; // can be "api" or "page"
+  var reloadMethod = "page"; // can be "api" or "page"
+
+  function applyReloadMethod() {
+    chrome.storage.sync.get({
+      reloadMethod: 'page'
+    }, function(items) {
+      reloadMethod = items.reloadMethod
+    });
+  }
+  applyReloadMethod();
+
+  // apply new reload method whenever options have been saved
+  chrome.runtime.onMessage.addListener(function(message) {
+    if(message.type === 'options-saved') {
+      applyReloadMethod();
+    }
+  });
 
   var io = require('socket.io-client');
   var socket = io('http://localhost:' + SOCKET_IO_PORT);

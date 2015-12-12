@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chrome Unpacked Extension Auto Reload</title>
+  </head>
+  <body>
+    <h1>Chrome Unpacked Extension Auto Reload v<%= version %></h1>
+
+    <h2>Options <span id="status"></span></h2>
+    <p>
+      <strong>Reload method</strong>
+      <select id="reload-method">
+        <option value="page">Extensions Page</option>
+        <option value="api">Manage API</option>
+      </select>
+      -
+      <span id="reload-method-desc"></span>
+    </p>
+    <div id="readme-md"></div>
+    <script type="text/javascript" src="js/options.js"></script>
+  </body>
+</html>

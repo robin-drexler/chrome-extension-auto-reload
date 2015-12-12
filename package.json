@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-auto-reload",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-template": "^3.0.0",
     "gulp-zip": "^3.0.2",
+    "markdownify": "^0.1.0",
     "watchify": "^2.4.0"
   },
   "repository": {
