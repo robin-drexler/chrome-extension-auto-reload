@@ -1,18 +1,18 @@
 {
   "name": "Chrome Unpacked Extension Auto Reload",
-  "version": "0.1.0",
+  "version": "<%= version %>",
   "icons": {
-    "256": "/img/icons/icon_256.png"
+    "256": "./img/icons/icon_256.png"
   },
-
   "description": "Reloads all unpacked extensions whenever a file is changed in an extension that is currently under development.",
   "permissions": [
-    "tabs"
+    "storage",
+    "tabs",
+    "management"
   ],
-
   "background": {
     "scripts": ["js/background.js"]
   },
-
+  "options_page": "options.html",
   "manifest_version": 2
 }

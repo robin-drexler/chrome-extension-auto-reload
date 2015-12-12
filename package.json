@@ -1,17 +1,37 @@
 {
   "name": "chrome-extension-auto-reload",
-  "version": "1.0.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "dist": "gulp dist"
   },
-  "author": "",
+  "author": "Robin Drexler <https://github.com/robin-drexler>",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.3.12",
     "browserify": "^9.0.3",
     "debowerify": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "gulp-zip": "^3.0.2",
+    "markdownify": "^0.1.0",
     "watchify": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robin-drexler/chrome-extension-auto-reload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robin-drexler/chrome-extension-auto-reload/issues"
+  },
+  "homepage": "https://github.com/robin-drexler/chrome-extension-auto-reload",
+  "dependencies": {
+    "socket.io-client": "^1.3.7"
   }
 }
