@@ -4,16 +4,13 @@
   "icons": {
     "256": "./img/icons/icon_256.png"
   },
-
   "description": "Reloads all unpacked extensions whenever a file is changed in an extension that is currently under development.",
   "permissions": [
     "tabs",
-	"management"
+    "management"
   ],
-
   "background": {
     "scripts": ["js/background.js"]
   },
-
   "manifest_version": 2
 }
