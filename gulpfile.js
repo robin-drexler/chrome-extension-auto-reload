@@ -37,10 +37,6 @@ gulp.task('build-code', ['bundle-js'], function() {
     .pipe(template(getPackageDetails()))
     .pipe(gulp.dest('./build'));
   console.log('Chrome manifest file generated at /build/manifest.json');
-
-  // copy external javascript to build
-  gulp.src('./src/js/external/*.*').pipe(gulp.dest('./build/js/external'));
-
 });
 
 gulp.task('bundle-js', function() {
